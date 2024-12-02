@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #dddddd;
+  background-color: #cbcbcb;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -19,3 +19,66 @@
   margin: 0;
   padding: 0;
 }
+
+.appContainer {
+  margin: 30px auto;
+}
+
+/* Atom classes */
+
+.button {
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  color: rgb(240, 248, 255);
+  padding: 12px 20px;
+  background-color: #017ce4;
+  border-radius: 6px;
+  border: none;
+  transition: background-color 0.2s linear;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: #005ba5;
+}
+
+.loadingMessage {
+  font-size: 16px;
+  line-height: 20px;
+  color: #0bc4ec;
+}
+
+.containerFlexColCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.containerFlexRowCenter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.errorMessage {
+  text-align: center;
+  font-size: 16px;
+  line-height: 20px;
+  color: rgb(223, 11, 11);
+}
+
+.loadingText {
+  text-align: center;
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #d27e10;
+}
+
+/* End of Atom classes */

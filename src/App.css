@@ -1,0 +1,32 @@
+.loginModal {
+  width: 650px !important;
+  min-height: 50%;
+}
+
+.loginModal__contentWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin: 30px auto;
+}
+
+.contentWrapper__heading {
+  text-align: center;
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #17ebe0 0%, #b236e6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.loginModal__btnsWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
