@@ -12,13 +12,7 @@ export const LoginModal = ({ isModalOpen, closeModal, setToken }) => {
   };
 
   return (
-    <Modal
-      open={isModalOpen}
-      onOk={closeModal}
-      onCancel={closeModal}
-      footer={null}
-      className='loginModal'
-    >
+    <Modal open={isModalOpen} footer={null} className='loginModal'>
       <div className='loginModal__contentWrapper'>
         <h3 className='contentWrapper__heading'>
           You must login first before play the game !
