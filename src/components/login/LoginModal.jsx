@@ -1,8 +1,7 @@
 import { Modal } from 'antd';
 import { useState } from 'react';
 import { getNonceApi } from '../../../api/authApi';
-import { MetaMaskLogin } from './MetaMaskLogin';
-import { NewMetaMask } from './NewMetaMask';
+import { MetaMaskUi } from './MetaMaskUi';
 
 export const LoginModal = ({ isModalOpen, closeModal, setToken }) => {
   const [nonce, setNonce] = useState(null);
@@ -31,7 +30,7 @@ export const LoginModal = ({ isModalOpen, closeModal, setToken }) => {
             </button>
           )}
           {nonce && (
-            <NewMetaMask
+            <MetaMaskUi
               nonce={nonce}
               closeModal={closeModal}
               setToken={setToken}

@@ -1,7 +1,5 @@
-import { useState, useEffect } from 'react';
-import { useSDK } from '@metamask/sdk-react';
+import { useState } from 'react';
 import { loginApi } from '../../../api/authApi';
-import { BrowserProvider } from 'ethers';
 import { setLocalStorageData } from '../../../services/localStorage';
 
 export const MetaMaskLogin = ({
@@ -11,28 +9,7 @@ export const MetaMaskLogin = ({
   signature,
   account,
 }) => {
-  // const [signature, setSignature] = useState(null);
   const [error, setError] = useState(null);
-  // const { connected, account } = useSDK();
-
-  // const message = `Authorize access to your account: Sign this message to log in. Nonce: ${nonce}`;
-
-  // const userSignMessage = async () => {
-  //   if (!nonce) return;
-
-  //   try {
-  //     setLoading(true);
-  //     const provider = new BrowserProvider(window.ethereum);
-  //     const signer = await provider.getSigner();
-  //     const signedMessage = await signer.signMessage(message);
-  //     setSignature(signedMessage);
-  //     setLoading(false);
-  //   } catch (err) {
-  //     setLoading(false);
-  //     setError('Failed to sign message');
-  //     console.error(err);
-  //   }
-  // };
 
   const handleLogin = async () => {
     if (!signature || !account) return;
@@ -53,12 +30,6 @@ export const MetaMaskLogin = ({
       console.error(err);
     }
   };
-
-  // useEffect(() => {
-  //   if (connected && account) {
-  //     userSignMessage();
-  //   }
-  // }, [connected, account, nonce]);
 
   return (
     <div className='containerFlexColCenter'>

@@ -50,7 +50,7 @@ function AppReady({ nonce, closeModal, setToken }) {
   );
 }
 
-export const NewMetaMask = ({ nonce, closeModal, setToken }) => {
+export const MetaMaskUi = ({ nonce, closeModal, setToken }) => {
   const { ready } = useSDK();
 
   if (!ready) {
