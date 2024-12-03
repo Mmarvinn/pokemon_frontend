@@ -25,6 +25,12 @@
   padding: 0 5vw;
 }
 
+@media (max-width: 767px) {
+  .appContainer {
+    margin: 10px auto;
+  }
+}
+
 /* Atom classes */
 .dFlex {
   display: flex;

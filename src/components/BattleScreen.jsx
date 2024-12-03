@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import { PokemonCard } from './pokemons/PokemonCard';
 import { damageDeal } from '../utils/calculateDamage';
 import { sendLogs } from '../../services/sendLogs';
+import useScreenWidth from '../../hooks/useScreenWidth';
 
 export const BattleScreen = ({ botsPokemon, selectedPokemon, restartGame }) => {
+  const deviceWidth = useScreenWidth();
   const [isFightStarted, setFightStart] = useState(false);
   const [whoFirst, setWhoFirst] = useState(null);
   const [isAttBtnDisabled, setAttBtnDisable] = useState(false);
@@ -158,7 +160,7 @@ export const BattleScreen = ({ botsPokemon, selectedPokemon, restartGame }) => {
           </div>
           <PokemonCard pokemon={botsPokemon} isDead={isBotPokemonDead} />
         </div>
-        {!isFightStarted && (
+        {!isFightStarted && deviceWidth > 768 && (
           <div className='startFightBtnWrapper'>
             <button className='button' onClick={() => setFightStart(true)}>
               Start FIGHT !
@@ -166,7 +168,7 @@ export const BattleScreen = ({ botsPokemon, selectedPokemon, restartGame }) => {
           </div>
         )}
         <div className='pokemons__userContainer'>
-          {isFightStarted && (
+          {isFightStarted && deviceWidth > 768 && (
             <button
               className={`button ${isAttBtnDisabled && 'disabled'}`}
               onClick={userAttack}
@@ -193,6 +195,22 @@ export const BattleScreen = ({ botsPokemon, selectedPokemon, restartGame }) => {
             <PokemonCard pokemon={selectedPokemon} isDead={isUserPokemonDead} />
           </div>
         </div>
+        {!isFightStarted && deviceWidth <= 768 && (
+          <div className='startFightBtnWrapper'>
+            <button className='button' onClick={() => setFightStart(true)}>
+              Start FIGHT !
+            </button>
+          </div>
+        )}
+        {isFightStarted && deviceWidth <= 768 && (
+          <button
+            className={`button ${isAttBtnDisabled && 'disabled'} attackBtn`}
+            onClick={userAttack}
+            disabled={isAttBtnDisabled}
+          >
+            ATTACK !
+          </button>
+        )}
       </div>
       <div className='battleConteiner__logs'>
         {logs.map((log, index) => (

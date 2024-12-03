@@ -13,7 +13,6 @@ export const MetaMaskLogin = ({
 }) => {
   // const [signature, setSignature] = useState(null);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
   // const { connected, account } = useSDK();
 
   // const message = `Authorize access to your account: Sign this message to log in. Nonce: ${nonce}`;
@@ -44,7 +43,7 @@ export const MetaMaskLogin = ({
       if (response.token) {
         setLocalStorageData(response.token);
         setToken(response.token);
-        alert('Login successful!');
+        alert('Login successful! Enjoy :) ');
         closeModal();
       } else {
         setError('Failed to authenticate');
@@ -63,7 +62,6 @@ export const MetaMaskLogin = ({
 
   return (
     <div className='containerFlexColCenter'>
-      {loading && <p className='loadingMessage'>Signing message...</p>}
       {error && <p className='errorMessage'>{error}</p>}
       {signature && (
         <div className='containerFlexColCenter'>

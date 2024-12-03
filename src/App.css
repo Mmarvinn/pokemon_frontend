@@ -276,3 +276,130 @@
   cursor: no-drop;
   background-color: gray;
 }
+
+.metaMaskUiContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+@media (max-width: 767px) {
+  .cardHeader__spriteWrapper {
+    width: 36px;
+    height: 36px;
+  }
+  .pokemons__pokemonWrapper {
+    gap: 6px;
+  }
+
+  .pokemons__whosFighterText {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .pokemonsWrapper {
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    max-height: 85vh;
+  }
+
+  .pokemonCard {
+    min-width: 50%;
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .pokemonCard__mainImageWrapper img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .statistics__base p,
+  .statistics__description,
+  .statistics__abilities p,
+  .statistics__species {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .statistics__type p {
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  .divider {
+    margin: 4px 0;
+  }
+
+  .cardHeader__nameAndHp {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 0;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .cardHeader__nameAndHp p:last-child {
+    display: none;
+  }
+
+  .pokemonsListAndButton {
+    gap: 16px;
+  }
+
+  .battleContainer {
+    gap: 10px;
+  }
+
+  .startFightBtnWrapper,
+  .attackBtn {
+    grid-column: 1 / span 2;
+  }
+  .startFightBtnWrapper button {
+    padding: 16px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  .battleContainer__pokemons {
+    gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+  }
+
+  .pokemons__userContainer .button {
+    font-size: 14px;
+    line-height: 16px;
+    padding: 12px;
+  }
+
+  .pokemons__userContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  .battleConteiner__logs {
+    padding: 6px;
+    max-height: 120px;
+    min-height: 120px;
+  }
+
+  .battleConteiner__logs p {
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .button {
+    font-size: 14px;
+    line-height: 16px;
+    padding: 10px 20px;
+  }
+}

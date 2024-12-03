@@ -18,30 +18,34 @@ function AppReady({ nonce, closeModal, setToken }) {
   });
 
   const { isConnected, address } = useAccount();
+  console.log(signData);
 
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <MetaMaskButton theme={'light'} color='white'></MetaMaskButton>
-        {isConnected && (
-          <>
-            <div style={{ marginTop: 20 }}>
-              <button disabled={isSignLoading} onClick={() => signMessage()}>
+    <div className='metaMaskUiContainer'>
+      <MetaMaskButton theme={'light'} color='white'></MetaMaskButton>
+      {isConnected && (
+        <>
+          {!signData && (
+            <div>
+              <button
+                className='button'
+                disabled={isSignLoading}
+                onClick={() => signMessage()}
+              >
                 Sign message
               </button>
-              {/* {isSignSuccess && <div>Signature: {signData}</div>} */}
               {isSignError && <div>Error signing message</div>}
             </div>
-            <MetaMaskLogin
-              account={address}
-              signature={signData}
-              nonce={nonce}
-              closeModal={closeModal}
-              setToken={setToken}
-            />
-          </>
-        )}
-      </header>
+          )}
+          <MetaMaskLogin
+            account={address}
+            signature={signData}
+            nonce={nonce}
+            closeModal={closeModal}
+            setToken={setToken}
+          />
+        </>
+      )}
     </div>
   );
 }
