@@ -2,17 +2,19 @@ import { Modal } from 'antd';
 import { useState } from 'react';
 import { getNonceApi } from '../../../api/authApi';
 import { MetaMaskLogin } from './MetaMaskLogin';
+import { NewMetaMask } from './NewMetaMask';
 
 export const LoginModal = ({ isModalOpen, closeModal, setToken }) => {
   const [nonce, setNonce] = useState(null);
 
   const handleClick = async () => {
-    await window.ethereum.request({
-      method: 'eth_requestAccounts',
-    });
+    // await window.ethereum.request({
+    //   method: 'eth_requestAccounts',
+    // });
 
     const nonceNumber = await getNonceApi();
     setNonce(nonceNumber.nonce);
+    console.log(nonceNumber.nonce);
   };
 
   return (
@@ -30,14 +32,19 @@ export const LoginModal = ({ isModalOpen, closeModal, setToken }) => {
         <div className='loginModal__btnsWrapper'>
           {!nonce && (
             <button className='button' onClick={handleClick}>
-              Login via MetaMask
+              Get Nonce
             </button>
           )}
-          <MetaMaskLogin
+          <NewMetaMask
             nonce={nonce}
             closeModal={closeModal}
             setToken={setToken}
           />
+          {/* <MetaMaskLogin
+            nonce={nonce}
+            closeModal={closeModal}
+            setToken={setToken}
+          /> */}
         </div>
       </div>
     </Modal>
