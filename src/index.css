@@ -22,9 +22,22 @@
 
 .appContainer {
   margin: 30px auto;
+  padding: 0 5vw;
 }
 
 /* Atom classes */
+.dFlex {
+  display: flex;
+}
+
+.divider {
+  display: block;
+  min-height: 2px;
+  max-height: 2px;
+  width: 100%;
+  margin: 8px 0;
+  background-color: #949494;
+}
 
 .button {
   font-size: 16px;

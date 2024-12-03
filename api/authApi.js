@@ -47,7 +47,10 @@ export const secureRequestApi = async (url, options = {}) => {
   });
 
   if (!res.ok) {
-    throw new Error(`${res.statusText}, status: ${res.status}`);
+    const error = new Error(`${res.statusText}, status: ${res.status}`);
+    error.status = res.status;
+    error.statusText = res.statusText;
+    throw error;
   }
 
   const data = await res.json();

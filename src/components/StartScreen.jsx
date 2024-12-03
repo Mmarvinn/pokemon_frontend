@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getUserApi } from '../../api/authApi';
 import { LoginModal } from './login/LoginModal';
 import { getLocalStorageData } from '../../services/localStorage';
-import { GameStartScreen } from './GameStartScreen';
+import { GameScreen } from './GameScreen';
 
 export const StartScreen = () => {
   const [isModalOpen, setModalOpen] = useState(true);
@@ -17,7 +17,7 @@ export const StartScreen = () => {
       const userData = await getUserApi();
       setUser(userData);
     } catch (err) {
-      console.log(err.message);
+      console.dir(err);
       setError(err.message);
     }
     setLoading(false);
@@ -36,7 +36,7 @@ export const StartScreen = () => {
     <>
       {error && <p className='errorMessage'>{error}</p>}
       {loading && <p className='loadingText'>Loading...</p>}
-      {!loading && !error && !user && (
+      {!loading && !user && (
         <LoginModal
           isModalOpen={isModalOpen}
           setToken={setToken}
@@ -45,7 +45,7 @@ export const StartScreen = () => {
           }}
         />
       )}
-      {user && <GameStartScreen user={user} />}
+      {user && <GameScreen />}
     </>
   );
 };
